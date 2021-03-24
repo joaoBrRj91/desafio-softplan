@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.809.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.WebApp.TaxaJuros.Api", "SoftPlan.WebApp.TaxaJuros.Api\SoftPlan.WebApp.TaxaJuros.Api.csproj", "{3342C71F-E6DC-4FEB-BF87-6E6DF92310D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{44381F8C-8A36-422D-BD71-8C19EB819598}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Financeiro", "Financeiro", "{971D4EFA-9478-4598-89E7-9350732850FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{CD0A4BED-67A6-4BB9-BC4D-32B214A7763D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.Fianceiro.Domain", "SoftPlan.Fianceiro.Domain\SoftPlan.Fianceiro.Domain.csproj", "{C2109326-BFAB-4108-83F5-5884278D05C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3342C71F-E6DC-4FEB-BF87-6E6DF92310D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3342C71F-E6DC-4FEB-BF87-6E6DF92310D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3342C71F-E6DC-4FEB-BF87-6E6DF92310D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3342C71F-E6DC-4FEB-BF87-6E6DF92310D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2109326-BFAB-4108-83F5-5884278D05C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2109326-BFAB-4108-83F5-5884278D05C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2109326-BFAB-4108-83F5-5884278D05C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2109326-BFAB-4108-83F5-5884278D05C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF534A0A-0A5D-4F75-86BF-87421E10BF7C}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{971D4EFA-9478-4598-89E7-9350732850FB} = {44381F8C-8A36-422D-BD71-8C19EB819598}
+		{3342C71F-E6DC-4FEB-BF87-6E6DF92310D8} = {CD0A4BED-67A6-4BB9-BC4D-32B214A7763D}
+		{C2109326-BFAB-4108-83F5-5884278D05C3} = {971D4EFA-9478-4598-89E7-9350732850FB}
+	EndGlobalSection
+EndGlobal
