@@ -2,7 +2,7 @@
 {
     public enum TipoJurosAplicacao
     {
-        JurosSimples,
-        JurosCompostos
+        JurosCompostos,
+        JurosSimples
     }
 }

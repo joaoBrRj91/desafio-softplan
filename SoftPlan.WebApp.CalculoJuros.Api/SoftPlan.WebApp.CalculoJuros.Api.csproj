@@ -5,4 +5,13 @@
   </PropertyGroup>
 
 
+  <ItemGroup>
+    <ProjectReference Include="..\SoftPlan.Fianceiro.Domain\SoftPlan.Fianceiro.Domain.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppServices\" />
+    <Folder Include="AppServices\ApiClient\" />
+  </ItemGroup>
 </Project>

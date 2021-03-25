@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SoftPlan.WebApp.CalculoJuros.Api.AppServices;
 
 namespace SoftPlan.WebApp.CalculoJuros.Api
 {
@@ -26,6 +27,8 @@ namespace SoftPlan.WebApp.CalculoJuros.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<TaxaJurosAplicacaoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +39,7 @@ namespace SoftPlan.WebApp.CalculoJuros.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

@@ -1,39 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using SoftPlan.WebApp.CalculoJuros.Api.AppServices;
 
 namespace SoftPlan.WebApp.CalculoJuros.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class CalculoJurosController : ApplicationControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly TaxaJurosAplicacaoService _taxaJurosService;
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        public CalculoJurosController(TaxaJurosAplicacaoService taxaJurosService)
+            => _taxaJurosService = taxaJurosService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [Route("calculojuros")]
+        public IActionResult Get(decimal valorInicial, int meses)
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+
+            try
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                var taxaJurosAplicacao = _taxaJurosService.ObterJurosTaxaAplicacao(valorInicial, meses);
+
+                return FormatContentResultResponse(taxaJurosAplicacao);
+
+            }
+            catch (System.Exception ex)
+            {
+                var responseError = new
+                {
+                    statusCode = HttpStatusCode.BadRequest,
+                    Message = ex.Message
+                };
+
+                return FormatContentResultResponse(responseError);
+
+            }
+
+
         }
     }
 }
