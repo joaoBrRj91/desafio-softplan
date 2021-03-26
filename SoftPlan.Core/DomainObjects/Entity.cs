@@ -8,7 +8,7 @@ namespace SoftPlan.Core.DomainObjects
             Id = Guid.NewGuid();
         }
 
-        protected readonly Guid Id;
+        public readonly Guid Id;
 
         public abstract void Validar();
     }

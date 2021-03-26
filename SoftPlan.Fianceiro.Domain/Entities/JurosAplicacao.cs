@@ -39,8 +39,8 @@ namespace SoftPlan.Fianceiro.Domain.Entities
 
         public override void Validar()
         {
-            Validacoes.ValidarSeMenorQue(valor: ValorInicial, minimo: 0, mensagem: $"O campo {nameof(ValorInicial)} não pode ser menor que 0");
-            Validacoes.ValidarSeNulo(object1: TaxaJuros, mensagem: $"Os dados referente a taxa de jutos não foram preenchidos");
+            Validacoes.ValidarSeMenorQue(valor: ValorInicial, minimo: 0, mensagem: $"O campo [ValorInicial] não pode ser menor que 0");
+            Validacoes.ValidarSeNulo(object1: TaxaJuros, mensagem: $"Os dados referente a taxa de juros não foram preenchidos");
 
             TaxaJuros.Validar();
 

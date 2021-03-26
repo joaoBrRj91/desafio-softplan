@@ -34,14 +34,14 @@ namespace SoftPlan.Fianceiro.Domain.Entities
 
         public void AtualizarMesesJuros(int meses)
         {
-            Validacoes.ValidarSeMenorQue(valor: meses, minimo: 1, mensagem: $"O campo {nameof(Meses)} não pode ser menor 1");
+            Validacoes.ValidarSeMenorQue(valor: meses, minimo: 1, mensagem: $"O campo [Meses] não permite valores menores que 1");
             Meses = meses;
         }
 
         public override void Validar()
         {
-            Validacoes.ValidarSeMenorQue(valor: Meses, minimo: 1, mensagem: $"O campo {nameof(Meses)} não permite valores menores que 1");
-            Validacoes.ValidarSeMenorQue(valor: PorcentagemJuros, minimo: 0, mensagem: $"O campo {nameof(PorcentagemJuros)} não pode ser menor que 0");
+            Validacoes.ValidarSeMenorQue(valor: Meses, minimo: 1, mensagem: $"O campo [Meses] não permite valores menores que 1");
+            Validacoes.ValidarSeMenorQue(valor: PorcentagemJuros, minimo: 0, mensagem: $"O campo [PorcentagemJuros] não pode ser menor que 0");
 
         }
     }
