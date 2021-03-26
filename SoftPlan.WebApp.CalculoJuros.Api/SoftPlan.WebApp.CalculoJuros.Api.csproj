@@ -15,4 +15,7 @@
     <Folder Include="AppServices\ApiClient\" />
     <Folder Include="AppServices\Interfaces\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
 </Project>

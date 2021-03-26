@@ -1,15 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+
 
 namespace SoftPlan.WebApp.TaxaJuros.Api
 {
@@ -26,6 +22,23 @@ namespace SoftPlan.WebApp.TaxaJuros.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwaggerGen(c => {
+
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "Taxa Juros Corrente",
+                        Version = "v1",
+                        Description = "API REST criada com o ASP.NET Core 3.1 para obter a taxa de juros corrente",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "João Nascimento",
+                            Url = new Uri("https://github.com/joaoBrRj91/desafio-softplan")
+                        }
+                    });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +48,11 @@ namespace SoftPlan.WebApp.TaxaJuros.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Calculo Juros Compostos V1");
+            });
 
             //app.UseHttpsRedirection();
 
