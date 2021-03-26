@@ -1,16 +1,15 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using SoftPlan.WebApp.CalculoJuros.Api.AppServices;
+using SoftPlan.WebApp.CalculoJuros.Api.AppServices.Interfaces;
 
 namespace SoftPlan.WebApp.CalculoJuros.Api.Controllers
 {
     [ApiController]
     public class CalculoJurosController : ApplicationControllerBase
     {
-        private readonly TaxaJurosAplicacaoService _taxaJurosService;
+        private readonly ITaxaJurosAplicacaoService _taxaJurosService;
 
-        public CalculoJurosController(TaxaJurosAplicacaoService taxaJurosService)
+        public CalculoJurosController(ITaxaJurosAplicacaoService taxaJurosService)
             => _taxaJurosService = taxaJurosService;
 
 

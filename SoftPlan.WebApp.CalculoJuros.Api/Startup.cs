@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SoftPlan.WebApp.CalculoJuros.Api.AppServices;
+using SoftPlan.WebApp.CalculoJuros.Api.AppServices.Interfaces;
 
 namespace SoftPlan.WebApp.CalculoJuros.Api
 {
@@ -28,7 +29,9 @@ namespace SoftPlan.WebApp.CalculoJuros.Api
         {
             services.AddControllers();
 
-            services.AddScoped<TaxaJurosAplicacaoService>();
+            services.AddScoped<ITaxaJurosAplicacaoService, TaxaJurosAplicacaoService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
