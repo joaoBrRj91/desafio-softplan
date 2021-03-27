@@ -7,6 +7,8 @@ using SoftPlan.WebApp.CalculoJuros.Api.AppServices;
 using SoftPlan.WebApp.CalculoJuros.Api.AppServices.Interfaces;
 using Microsoft.OpenApi.Models;
 using System;
+using Providers.GitPath.Interface;
+using Providers.GitPath;
 
 namespace SoftPlan.WebApp.CalculoJuros.Api
 {
@@ -42,6 +44,8 @@ namespace SoftPlan.WebApp.CalculoJuros.Api
 
 
             services.AddScoped<ITaxaJurosAplicacaoService, TaxaJurosAplicacaoService>();
+            services.AddScoped<IGitDiretorioRemotoService, LibGit2SharpService>();
+
 
 
         }
