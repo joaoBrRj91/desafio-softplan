@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  softplan.webapp.calculojuros.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:11398
+      - API_TAXA_JUROS_URL=http://softplan.webapp.taxajuros.api:5000
+    ports:
+      - "11398:11398"
+    networks:
+      - MyNetwork
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+    depends_on:
+      - softplan.webapp.taxajuros.api
+  softplan.webapp.taxajuros.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - "5000:5000"
+    networks:
+      - MyNetwork
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+
+networks:
+  MyNetwork:
+    external: true
+    driver: bridge

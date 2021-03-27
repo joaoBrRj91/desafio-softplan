@@ -1,7 +1,6 @@
 ﻿namespace SoftPlan.Core.DomainObjects
 {
 
-    //AssertingConcern - DDD
     public class Validacoes
     {
 

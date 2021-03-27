@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.Core", "SoftPlan.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.financeiro.Tests", "SoftPlan.financeiro.Tests\SoftPlan.financeiro.Tests.csproj", "{25042AE3-3966-4619-B5B8-49389A857EE1}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A59CC10F-6CCB-4783-ABB7-8C212B9011E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{25042AE3-3966-4619-B5B8-49389A857EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25042AE3-3966-4619-B5B8-49389A857EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25042AE3-3966-4619-B5B8-49389A857EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59CC10F-6CCB-4783-ABB7-8C212B9011E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59CC10F-6CCB-4783-ABB7-8C212B9011E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59CC10F-6CCB-4783-ABB7-8C212B9011E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59CC10F-6CCB-4783-ABB7-8C212B9011E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

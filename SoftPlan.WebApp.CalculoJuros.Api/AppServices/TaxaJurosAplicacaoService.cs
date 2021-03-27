@@ -44,7 +44,7 @@ namespace SoftPlan.WebApp.CalculoJuros.Api.AppServices
             using (var client = new ClientApplication())
             {
 
-                var response = client.GetHttpClient().GetAsync("http://localhost:5000/taxajuros").Result;
+                var response = client.GetHttpClient().GetAsync($"{client.baseAddress}/taxajuros").Result;
 
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                     throw new Exception($"Ocorreu um erro inesperado. StatusCode {response.StatusCode}, mensagem {response.RequestMessage}");

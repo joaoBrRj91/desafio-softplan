@@ -52,6 +52,7 @@ namespace SoftPlan.WebApp.CalculoJuros.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                Environment.SetEnvironmentVariable("API_TAXA_JUROS_URL", "http://localhost:5000");
             }
 
             app.UseSwagger();

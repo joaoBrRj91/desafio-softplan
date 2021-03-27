@@ -10,10 +10,13 @@ namespace SoftPlan.WebApp.CalculoJuros.Api.AppServices.ApiClient
 
         private readonly string _contentType;
 
-        public ClientApplication(string baseAddress = "" , string contentType = "application/json")
+        public readonly string baseAddress;
+
+        public ClientApplication(string contentType = "application/json")
         {
             _httpClient = new HttpClient();
             _contentType = contentType;
+            baseAddress = Environment.GetEnvironmentVariable("API_TAXA_JUROS_URL");
             ConfigureClient();
         }
 

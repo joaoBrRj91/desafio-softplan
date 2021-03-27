@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  softplan.webapp.calculojuros.api:
+    image: ${DOCKER_REGISTRY-}softplanwebappcalculojuros
+    build:
+      context: .
+      dockerfile: SoftPlan.WebApp.CalculoJuros.Api/Dockerfile
+
+  softplan.webapp.taxajuros.api:
+    image: ${DOCKER_REGISTRY-}softplanwebapptaxajuros
+    build:
+      context: .
+      dockerfile: SoftPlan.WebApp.TaxaJuros.Api/Dockerfile
+
