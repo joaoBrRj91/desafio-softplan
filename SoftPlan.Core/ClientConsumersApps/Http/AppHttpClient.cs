@@ -2,9 +2,9 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace SoftPlan.WebApp.CalculoJuros.Api.AppServices.ApiClient
+namespace SoftPlan.Core.ClientConsumersApps.Http
 {
-    public class ClientApplication : IDisposable
+    public class AppHttpClient : IDisposable
     {
         private readonly HttpClient _httpClient;
 
@@ -12,7 +12,7 @@ namespace SoftPlan.WebApp.CalculoJuros.Api.AppServices.ApiClient
 
         public readonly string baseAddress;
 
-        public ClientApplication(string contentType = "application/json")
+        public AppHttpClient(string contentType = "application/json")
         {
             _httpClient = new HttpClient();
             _contentType = contentType;

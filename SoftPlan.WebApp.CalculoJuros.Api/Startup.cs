@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SoftPlan.WebApp.CalculoJuros.Api.AppServices;
-using SoftPlan.WebApp.CalculoJuros.Api.AppServices.Interfaces;
 using Microsoft.OpenApi.Models;
 using System;
 using Providers.GitPath.Interface;
 using Providers.GitPath;
+using SoftPlan.Fianceiro.Domain.Services.Interfaces;
+using SoftPlan.Fianceiro.Domain.Services;
 
 namespace SoftPlan.WebApp.CalculoJuros.Api
 {

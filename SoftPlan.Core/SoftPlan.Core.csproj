@@ -6,5 +6,8 @@
 
   <ItemGroup>
     <Folder Include="DomainObjects\" />
+    <Folder Include="ClientConsumersApps\" />
+    <Folder Include="ClientConsumersApps\Http\" />
+    <Folder Include="ClientConsumersApps\gRPC\" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using SoftPlan.WebApp.CalculoJuros.Api.AppServices.Interfaces;
+using SoftPlan.Fianceiro.Domain.Services.Interfaces;
 
 namespace SoftPlan.WebApp.CalculoJuros.Api.Controllers
 {

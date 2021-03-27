@@ -1,19 +1,14 @@
 ﻿using System;
 using Newtonsoft.Json;
+using SoftPlan.Core.ClientConsumersApps.Http;
 using SoftPlan.Core.DomainObjects;
 using SoftPlan.Fianceiro.Domain.Entities;
-using SoftPlan.WebApp.CalculoJuros.Api.AppServices.ApiClient;
-using SoftPlan.WebApp.CalculoJuros.Api.AppServices.Interfaces;
+using SoftPlan.Fianceiro.Domain.Services.Interfaces;
 
-namespace SoftPlan.WebApp.CalculoJuros.Api.AppServices
+namespace SoftPlan.Fianceiro.Domain.Services
 {
     public class TaxaJurosAplicacaoService : ITaxaJurosAplicacaoService
     {
-
-        //TODO: Injetar o IConfiguration para obter o baseuUrl do appSettings
-        public TaxaJurosAplicacaoService()
-        {
-        }
 
         public JurosAplicacao ObterJurosTaxaAplicacao(decimal valorInicial, int meses)
         {
@@ -41,7 +36,7 @@ namespace SoftPlan.WebApp.CalculoJuros.Api.AppServices
 
         public JurosTaxa ObterTaxaJurosCorrente(int meses)
         {
-            using (var client = new ClientApplication())
+            using (var client = new AppHttpClient())
             {
 
                 var response = client.GetHttpClient().GetAsync($"{client.baseAddress}/taxajuros").Result;
