@@ -1,21 +1,24 @@
 ﻿using System;
-using Newtonsoft.Json;
-using SoftPlan.Core.ClientConsumersApps.Http;
 using SoftPlan.Core.DomainObjects;
 using SoftPlan.Fianceiro.Domain.Entities;
+using SoftPlan.Fianceiro.Domain.Facade.Interfaces;
 using SoftPlan.Fianceiro.Domain.Services.Interfaces;
 
 namespace SoftPlan.Fianceiro.Domain.Services
 {
     public class TaxaJurosAplicacaoService : ITaxaJurosAplicacaoService
     {
+        private readonly ITaxaJurosAplicacaoFacade _taxaJurosAplicacaoFacade;
+
+        public TaxaJurosAplicacaoService(ITaxaJurosAplicacaoFacade taxaJurosAplicacaoFacade)
+            => _taxaJurosAplicacaoFacade = taxaJurosAplicacaoFacade;
 
         public JurosAplicacao ObterJurosTaxaAplicacao(decimal valorInicial, int meses)
         {
-            var jurosTaxa = ObterTaxaJurosCorrente(meses);
 
             try
             {
+                var jurosTaxa = ObterTaxaJurosCorrente(meses);
                 var jurosAplicacao = new JurosAplicacao(valorInicial, jurosTaxa);
                 jurosAplicacao.CalcularValorJurosAplicado();
                 return jurosAplicacao;
@@ -36,22 +39,10 @@ namespace SoftPlan.Fianceiro.Domain.Services
 
         public JurosTaxa ObterTaxaJurosCorrente(int meses)
         {
-            using (var client = new AppHttpClient())
-            {
+            var jurosTaxa =_taxaJurosAplicacaoFacade.ObterTaxaJurosCorrente(meses);
+            jurosTaxa.AtualizarMesesJuros(meses);
 
-                var response = client.GetHttpClient().GetAsync($"{client.baseAddress}/taxajuros").Result;
-
-                if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                    throw new Exception($"Ocorreu um erro inesperado. StatusCode {response.StatusCode}, mensagem {response.RequestMessage}");
-
-                string conteudo = response.Content.ReadAsStringAsync().Result;
-                var jurosTaxa = JsonConvert.DeserializeObject<JurosTaxa>(conteudo);
-
-                jurosTaxa?.AtualizarMesesJuros(meses);
-
-                return jurosTaxa;
-
-            }
+            return jurosTaxa;
         }
 
     }

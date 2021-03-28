@@ -9,6 +9,8 @@ using Providers.GitPath.Interface;
 using Providers.GitPath;
 using SoftPlan.Fianceiro.Domain.Services.Interfaces;
 using SoftPlan.Fianceiro.Domain.Services;
+using SoftPlan.Fianceiro.Domain.Facade;
+using SoftPlan.Fianceiro.Domain.Facade.Interfaces;
 
 namespace SoftPlan.WebApp.CalculoJuros.Api
 {
@@ -43,9 +45,9 @@ namespace SoftPlan.WebApp.CalculoJuros.Api
             });
 
 
+            services.AddScoped<ITaxaJurosAplicacaoFacade, TaxaJurosAplicacaoFacade>();
             services.AddScoped<ITaxaJurosAplicacaoService, TaxaJurosAplicacaoService>();
             services.AddScoped<IGitDiretorioRemotoService, LibGit2SharpService>();
-
 
 
         }
