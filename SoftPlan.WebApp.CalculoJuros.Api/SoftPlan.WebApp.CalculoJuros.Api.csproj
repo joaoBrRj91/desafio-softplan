@@ -14,7 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppServices\" />
-    <Folder Include="AppServices\Interfaces\" />
     <Folder Include="AppServices\Providers\" />
     <Folder Include="AppServices\Providers\GitPath\" />
     <Folder Include="AppServices\Providers\GitPath\Interface\" />
